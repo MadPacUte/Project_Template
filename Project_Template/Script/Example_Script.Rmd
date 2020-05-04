@@ -1,0 +1,38 @@
+---
+title: "Example Script"
+author: "Randall Madsen"
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	message = FALSE,
+	warning = FALSE
+)
+```
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+
+#Load packages
+
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(tidyverse, lubridate, readxl, janitor, plotly, reactable, DT, scales)
+
+#Set theme for better viz
+theme_set(theme_light())
+```
+
+
+```{r}
+# raw_excel <- 
+read_excel("example.xlsx") %>% 
+  clean_names() 
+
+# raw_csv <- 
+read_csv("example.csv") %>% 
+  clean_names()
+
+```
